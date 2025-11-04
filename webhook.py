@@ -39,9 +39,9 @@ def embed():
     if colour_input:
         try:
             colour = int(colour_input, 16)
-            print(f"🎨 Farge satt til: #{colour:06X}")
+            print(f"🎨 Colour set to: #{colour:06X}")
         except ValueError:
-            print("❌ Ugyldig farge. Bruker standard.")
+            print("❌ Invalid colour. Using default colour.")
             colour = 0x7289DA
     else:
         colour = 0x7289DA
@@ -50,7 +50,7 @@ def embed():
     if bilde in ("yes", "y"):
         bilde = input("Link to the image: ").strip()
         if bilde and not bilde.startswith("http"):
-            print("⚠️ Bildelinken ser ikke gyldig ut. Fortsetter likevel...")
+            print("⚠️ linkimage isn't valid.")
     else:
         bilde = None
 
@@ -70,9 +70,9 @@ def embed():
     print("✅ Meldingen ble sendt!" if response.status_code == 204 else f"❌ Feil: {response.status_code}")
 
 def normal():
-    message = input("Hva vil du sende?: ").strip()
+    message = input("What do you want to send?: ").strip()
     if not message:
-        print("❌ Kan ikke sende tom melding.")
+        print("❌ Can't send the message.")
         return
 
     data = {
@@ -97,7 +97,8 @@ while True:
     elif ask in ("no", "n"):
         normal()
     elif ask in ("exit", "e", "q"):
-        print("👋 Avslutter...")
+        print("👋 Closing...")
         break
     else:
-        print("❌ Ugyldig valg.")
+        print("❌ Inavlid choice.")
+
